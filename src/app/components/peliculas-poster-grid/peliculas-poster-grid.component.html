@@ -1,5 +1,6 @@
 <div class="row">
-    <div class="col-md-3 mb-5" *ngFor="let movie of movies">
+    <div class="col-md-3 mb-5" *ngFor="let movie of movies" (click)="onMovieClick( movie )">
+
         <img  class="img-fluid poster" [src]="movie.poster_path | poster" alt="Poster de {{ movie.title }}">
 
         <div class="">
@@ -12,7 +13,7 @@
                     uncheckedcolor="grey" 
                     size="14px"
                     [totalstars]="10"
-                    [readonly]="false"></star-rating>
+                    [readonly]="true"></star-rating>
                 </div>
                 <div class="col-2 text-white">
                     {{ movie.vote_average | number: '1.1-2'}}

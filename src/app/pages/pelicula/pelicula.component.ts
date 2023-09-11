@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MovieResponse } from 'src/app/interfaces/movie-response';
+import { PeliculasService } from 'src/app/services/peliculas.service';
+import { Cast } from 'src/app/interfaces/credits-response';
 
 @Component({
   selector: 'app-pelicula',
@@ -7,9 +12,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeliculaComponent implements OnInit {
 
-  constructor() { }
+  public movie: MovieResponse | any;
+  public cast: Cast[] | any;
+
+  constructor(  private activatedRoute: ActivatedRoute,
+                private peliculasService: PeliculasService,
+                private location: Location,
+                private router: Router ) { }
 
   ngOnInit(): void {
+
+    const { id } = this.activatedRoute.snapshot.params;
+
+    this.peliculasService.getPeliculaDetalle( id ).subscribe( movie => {
+      if(!movie){
+        this.router.navigateByUrl('/home');
+        return;
+      }
+      this.movie = movie;
+    });
+
+    this.peliculasService.getCast( id ).subscribe( cast => {
+      this.cast = cast;
+      console.log(cast);
+    });
+
+  }
+
+  onRegresar() {
+    this.location.back();
   }
 
 }
