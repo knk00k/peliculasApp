@@ -3,8 +3,17 @@ h3{
     font-size: 15px;
 }
 
+.poster-movie{
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+
+.poster-movie:hover{
+    transform: scale(1.05);
+}
+
 .poster{
     border-radius: 8px;
-    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .5);
+    box-shadow: 0 0 6px 3px rgba(20, 20, 20, 0.5);
     margin: 5px;
 }

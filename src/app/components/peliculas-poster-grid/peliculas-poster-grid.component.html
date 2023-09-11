@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-3 mb-5" *ngFor="let movie of movies" (click)="onMovieClick( movie )">
+    <div class="col-md-3 mb-5 poster-movie" *ngFor="let movie of movies" (click)="onMovieClick( movie )">
 
         <img  class="img-fluid poster" [src]="movie.poster_path | poster" alt="Poster de {{ movie.title }}">
 

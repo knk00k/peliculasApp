@@ -3,9 +3,13 @@
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
-        <div class="swiper-slide text-white text-center" *ngFor="let actor of cast">
+        <div class="swiper-slide text-white text-center mb-4" *ngFor="let actor of cast">
             <img [src]="actor.profile_path | poster" [alt]="actor.name" class="img-thumbnail">
-            {{ actor.name }}
+            {{ actor.name }} 
+            <br>
+            como 
+            <br>
+            {{ actor.character }}
         </div>
     </div>
 
