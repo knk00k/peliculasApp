@@ -1,0 +1,18 @@
+.swiper-wrapper {
+  width: 100%;
+  height: 600px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #FFF;
+}
+
+.movie-description{
+    background-color: rgba(0,0,0,.3);
+    bottom: 0;
+    padding: 5px 30px;
+    position: absolute;
+    width: 100%;
+    border-radius: 4px;
+}
