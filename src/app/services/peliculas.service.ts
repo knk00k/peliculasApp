@@ -13,7 +13,6 @@ export class PeliculasService {
 
   private baseUrl: string = 'https://api.themoviedb.org/3';
   private cateleraPage = 1;
-
   public cargando: boolean = false;
 
   constructor( private http: HttpClient ) { }
@@ -24,6 +23,10 @@ export class PeliculasService {
       language: 'es-ES',
       page: this.cateleraPage.toString()
     }
+  }
+
+  resetCarteleraPage(){
+    this.cateleraPage = 1;
   }
 
   getCartelera():Observable<Movie[]> {
@@ -47,5 +50,15 @@ export class PeliculasService {
         this.cargando = false;
       })
     );
+  }
+
+  buscarPeliculas( texto: string ):Observable<Movie[]> {
+    const params ={ ...this.params, page: '1', query: texto}
+
+    return this.http.get<CarteleraResponse>(`${ this.baseUrl }/search/movie?`,{
+      params
+    }).pipe(
+      map( resp => resp.results )
+    )
   }
 }

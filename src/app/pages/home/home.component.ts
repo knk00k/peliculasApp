@@ -28,17 +28,21 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  constructor( private peliculasService: PeliculasService) { 
-    
+  constructor( private peliculasService: PeliculasService) { }
+
+  ngOnInit(): void {
+
     this.peliculasService.getCartelera()
       .subscribe( movies => {
         // console.log(resp.results);
         this.movies = movies;
         this.moviesSlideshow = movies;
       });
+
   }
 
-  ngOnInit(): void {
+  ngOnDestroy(){
+    this.peliculasService.resetCarteleraPage();
   }
 
 }
