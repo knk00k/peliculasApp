@@ -16,4 +16,5 @@ h3{
     border-radius: 8px;
     box-shadow: 0 0 6px 3px rgba(20, 20, 20, 0.5);
     margin: 5px;
+    width: -webkit-fill-available;
 }

@@ -1,3 +1,5 @@
-img{
-    height: 500px;
+@media (min-width: 768px) {
+    .img{
+        height: 500px;
+    }
 }

@@ -34,3 +34,14 @@
 .movie-card__content > h3{
   font-weight: 600;
 }
+
+@media (max-width: 769px){
+  .movie-card__content{
+    position: absolute;
+    bottom: 0px;
+    background: rgba(0,0,0,.7);
+    width: 100%;
+    margin: 0;
+    padding: 20px 20px 40px;
+  }
+}
