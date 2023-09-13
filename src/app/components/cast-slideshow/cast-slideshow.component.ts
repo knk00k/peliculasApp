@@ -20,6 +20,14 @@ export class CastSlideshowComponent implements OnInit, AfterViewInit {
       spaceBetween: 15,
 
     });
+
+    if (window.innerWidth < 768) {
+      const swiper = new Swiper('.swiper', {
+        slidesPerView: 2.3,
+        freeMode: true,
+        spaceBetween: 15,
+      });
+    }
   }
 
   ngOnInit(): void {

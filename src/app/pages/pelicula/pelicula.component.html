@@ -1,4 +1,4 @@
-<div class="row" *ngIf="movie">
+<div class="row my-4" *ngIf="movie">
     <div class="col-md-4">
         <img [src]=" movie.poster_path | poster" 
             [alt]="movie.title"
@@ -6,6 +6,23 @@
     </div>
     <div class="col-md-8">
         <h3>{{ movie.title }}</h3>
+
+        <div class="row">
+            <div class="col">
+                <small class="d-flex">
+                    <p>{{ movie.release_date | date:'dd/MM/yyyy' }} •&nbsp;</p>
+                
+                <ul class="text-white p-0">
+                    <ng-container *ngFor="let genre of generos; let last = last">
+                      {{ genre.name  }} 
+                      <ng-container *ngIf="!last">,</ng-container>
+                    </ng-container>
+                </ul>
+                <p>&nbsp;• {{ duracionPelicula?.hours }}h {{ duracionPelicula?.minutes }}m</p>
+                </small>
+            </div>
+        </div>
+        
         <div class="row">
             <div class="col-4">
                 <div class="col-10 text-white">
@@ -23,6 +40,9 @@
             </div>
         </div>
         <div class="row text-white mt-3" >
+            <p class="fst-italic text-secondary">
+                {{ movie.tagline }}
+            </p>
             <p>
                 {{ movie.overview }}
             </p>

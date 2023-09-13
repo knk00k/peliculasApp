@@ -1,0 +1,8 @@
+.navbar-brand{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0dcaf0!important;
+    text-shadow: 2px 2px 4px #000000;
+    text-decoration: none;
+    cursor: pointer;
+}

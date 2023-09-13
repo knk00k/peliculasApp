@@ -80,4 +80,13 @@ export class PeliculasService {
       catchError( err => of([]) ),
     );
   }
+
+  getGeneros():Observable<any>{
+    return this.http.get<any>(`${ this.baseUrl }/genre/movie/list?`,{
+      params: this.params
+    }).pipe(
+      map( resp => resp.genres ),
+      catchError( err => of([]) ),
+    );
+  }
 }

@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit {
         this.movies = movies;
         this.moviesSlideshow = movies;
       });
+      window.scrollTo(0, 0);
 
   }
 
